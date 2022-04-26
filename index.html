@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
+  <body>
+      <div class="navbar">
+          <div><a href="index.html">Home</a></div>
+          <div><a href="que.html">Questions</a></div>
+          <div><a href="article.html">article</a></div>
+      </div>
+    <div class="container">
+      <div>
+        <form id="form">
+          <label for="title">Quetions</label>
+          <input
+            type="text"
+            id="que"
+            placeholder="
+                "
+          />
+          <label for="links">Link</label>
+          <input type="text" id="link" placeholder="" />
+          <label for="level">Level</label>
+          <select name="level" id="level" placeholder="">
+            <option value="">select</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Hard</option>
+            <option value="Hard">Medium</option>
+          </select>
+          <label for="status">Status</label>
+          <select name="status" id="status">
+            <option value="">select</option>
+            <option value="Not Yet">Not Yet</option>
+            <option value="Done">Done</option>
+            <option value="Process">Pending</option>
+          </select>
+          <input type="submit" id="submit">
+        </form>
+      </div>
+      <hr />
+      <div id="list">
+        <table>
+          <tbody>
+            <tr>
+              <th>Questions</th>
+              <th>Links</th>
+              <th>Level</th>
+              <th>Status</th>
+            </tr>
+
+          </tbody>
+
+          <h1 id="head"></h1>
+          <button id="inc">Increment</button>
+          <button id="dec">Decrement</button>
+        </div>
+    </div>
+  </body>
+</html>
+    </table>
+
+<script>
+  // variables
+  var form = document.querySelector('#form');
+
+  //functions
+  function display(data) {
+    var parent = document.getElementById('list');
+
+    var row=document.createElement('tr');
+    var td = document.createElement('td');
+
+    
+    parent.append(row);
+
+    // events
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+        var data = {
+            que:form.que.value,
+            link:form.link.value,
+            level:form.level.value,
+            status:form.status.value
+        }
+        console.log(form.que.value);
+        console.log("working");
+    });
+    console.log(form);
+  }
+
+  var link = "https://course.masaischool.com/lectures/27027";
+  var num = 16;
+  localStorage.setItem("link", link);
+  localStorage.setItem("num", num);
+
+  var out = JSON.parse(localStorage.getItem("num"))
+  console.log(typeof(out));
+
+  var names = ["Randhir", "Neha", "Reha"];
+  localStorage.setItem("names",JSON.stringify(names));
+  console.log(typeof(JSON.parse(localStorage.getItem("names"))));
+ 
+  var h1 = document.getElementById('head');
+  
+
+</script>
