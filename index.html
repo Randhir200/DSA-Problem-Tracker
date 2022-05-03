@@ -11,27 +11,27 @@
   <body>
       <div class="navbar">
           <div><a href="index.html">Home</a></div>
-          <div><a href="que.html">Questions</a></div>
+          <div><a href="tracker.html">Tracker</a></div>
           <div><a href="article.html">article</a></div>
       </div>
     <div class="container">
       <div>
         <form id="form">
-          <label for="title">Quetions</label>
+          <label for="queTitle">Quetions</label>
           <input
             type="text"
-            id="que"
+            id="queTitle"
             placeholder="
                 "
           />
-          <label for="links">Link</label>
+          <label for="link">Link</label>
           <input type="text" id="link" placeholder="" />
           <label for="level">Level</label>
           <select name="level" id="level" placeholder="">
             <option value="">select</option>
             <option value="Easy">Easy</option>
-            <option value="Medium">Hard</option>
-            <option value="Hard">Medium</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
           </select>
           <label for="status">Status</label>
           <select name="status" id="status">
@@ -44,9 +44,9 @@
         </form>
       </div>
       <hr />
-      <div id="list">
+      <div>
         <table>
-          <tbody>
+          <tbody id="list">
             <tr>
               <th>Questions</th>
               <th>Links</th>
@@ -65,48 +65,5 @@
 </html>
     </table>
 
-<script>
-  // variables
-  var form = document.querySelector('#form');
-
-  //functions
-  function display(data) {
-    var parent = document.getElementById('list');
-
-    var row=document.createElement('tr');
-    var td = document.createElement('td');
-
-    
-    parent.append(row);
-
-    // events
-    form.addEventListener('submit', function(event){
-        event.preventDefault();
-        var data = {
-            que:form.que.value,
-            link:form.link.value,
-            level:form.level.value,
-            status:form.status.value
-        }
-        console.log(form.que.value);
-        console.log("working");
-    });
-    console.log(form);
-  }
-
-  var link = "https://course.masaischool.com/lectures/27027";
-  var num = 16;
-  localStorage.setItem("link", link);
-  localStorage.setItem("num", num);
-
-  var out = JSON.parse(localStorage.getItem("num"))
-  console.log(typeof(out));
-
-  var names = ["Randhir", "Neha", "Reha"];
-  localStorage.setItem("names",JSON.stringify(names));
-  console.log(typeof(JSON.parse(localStorage.getItem("names"))));
- 
-  var h1 = document.getElementById('head');
-  
-
+<script src="main.js">
 </script>
